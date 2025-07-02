@@ -12,7 +12,6 @@ export default function HomeScreen() {
   const [showGreeting, setShowGreeting] = useState(false);
 
   const handleClick = () => {
-    console.log("showGreeting:", showGreeting);
     setShowGreeting(!showGreeting);
   };
 
@@ -21,7 +20,7 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require("@/assets/images/partial-react-logo.png")}
           style={styles.reactLogo}
         />
       }
@@ -29,7 +28,7 @@ export default function HomeScreen() {
       <Button onPressIn={handleClick}>{showGreeting ? "Hide" : "Show"}</Button>
       {showGreeting && (
         <ThemedView style={styles.titleContainer}>
-          <ThemedText type='title'>Hello !</ThemedText>
+          <ThemedText type='title'>Hello!</ThemedText>
           <HelloWave />
         </ThemedView>
       )}
