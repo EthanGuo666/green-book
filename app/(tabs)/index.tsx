@@ -8,10 +8,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { Button } from "@react-navigation/elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function HomeScreen() {
-
-
-
+const HomeScreen = () => {
   return (
     <SafeAreaView className='flex-1 bg-myBackGround'>
       <View>
@@ -19,4 +16,5 @@ export default function HomeScreen() {
       </View>
     </SafeAreaView>
   );
-}
+};
+export default HomeScreen;

@@ -9,7 +9,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 
-export default function TabTwoScreen() {
+const Explore = () => {
   return (
     <SafeAreaView className='flex-1 bg-myBackGround'>
       <View>
@@ -17,4 +17,6 @@ export default function TabTwoScreen() {
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default Explore;
