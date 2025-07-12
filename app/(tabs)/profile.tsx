@@ -10,13 +10,13 @@ const profile = () => {
           <Text className='text-2xl font-bold'>{"Profile"}</Text>
         </View>
         <Link href='/Login' className='p-4 rounded-lg w-full'>
-          <Text className='text-center font-semibold text-lg'>登录</Text>
+          <Text className='text-center font-semibold text-lg'>Login</Text>
         </Link>
         <Link href='/SignUp' className='p-4 rounded-lg w-full'>
-          <Text className='text-center font-semibold text-lg'>注册</Text>
+          <Text className='text-center font-semibold text-lg'>Sign up</Text>
         </Link>
         <Link href='/Login' className='p-4 rounded-lg w-full'>
-          <Text className='text-center font-semibold text-lg'>退出登录</Text>
+          <Text className='text-center font-semibold text-lg'>Logout</Text>
         </Link>
       </View>
     </SafeAreaView>
