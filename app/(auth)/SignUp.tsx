@@ -1,6 +1,8 @@
 import { View, Text, Pressable, SafeAreaView, TextInput } from "react-native";
 import React, { useState } from "react";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import { register } from "@/lib/appwrite";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -8,15 +10,29 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {
+  const { refreshUser } = useGlobalContext();
+
+  const handleSubmit = async () => {
     console.log("email:", email, "username:", username, "password:", password);
+    try {
+      setLoading(true);
+      await register(email, password, username);
+      setLoading(false);
+      router.push("/");
+      refreshUser();
+    } catch (error) {
+      console.error("Sign up failed:", error);
+      // Optionally, you can show an alert or a toast message to the user
+      alert("Sign up failed. Please try again.");
+      setLoading(false);
+    }
   };
 
   return (
     <SafeAreaView className='flex-1 bg-myBackGround'>
       <View className='flex-1 flex-col mx-2 items-center'>
         <Text className='text-2xl font-bold text-myGreen text-center mt-20'>
-          Sign Up
+          Create a new account
         </Text>
         <TextInput
           placeholder='Email'
@@ -45,8 +61,13 @@ const SignUp = () => {
           </Text>
         </Pressable>
         <View className='flex-row justify-center p-4 w-full'>
-          <Text className='text-center font-semibold text-sm'>Already had an account?</Text>
-          <Link href='/Login' className='font-semibold text-sm text-green-500'> Login</Link>
+          <Text className='text-center font-semibold text-sm'>
+            Already had an account?
+          </Text>
+          <Link href='/Login' className='font-semibold text-sm text-green-500'>
+            {" "}
+            Login
+          </Link>
         </View>
       </View>
     </SafeAreaView>
