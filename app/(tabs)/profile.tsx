@@ -5,8 +5,8 @@ import { Link } from "expo-router";
 const profile = () => {
   return (
     <SafeAreaView className='flex-1 bg-myBackGround'>
-      <View className='flex-1 flex-col items-center'>
-        <View className='flex-row gap-2 items-center justify-center'>
+      <View className='flex-1 flex-col items-center p-32'>
+        <View className='flex-row gap-2 items-center justify-center pb-10'>
           <Text className='text-2xl font-bold'>{"Profile"}</Text>
         </View>
         <Link href='/Login' className='p-4 rounded-lg w-full'>
